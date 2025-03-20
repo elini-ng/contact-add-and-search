@@ -1,4 +1,12 @@
-package PACKAGE_NAME;
+public class PersonalContact extends Contact{
+    String relationship;
 
-public class PersonalContact {
+    PersonalContact(String name, String phoneNumber, String relationship){
+        super(name, phoneNumber);
+        this.relationship = relationship;
+    }
+
+    public String getRelationship(){
+        return this.relationship;
+    }
 }

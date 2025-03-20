@@ -1,4 +1,12 @@
-package PACKAGE_NAME;
+public class BusinessContact extends Contact{
+    String company;
 
-public class BusinessContact {
+    BusinessContact(String name, String phoneNumber, String company){
+        super(name, phoneNumber);
+        this.company = company;
+    }
+
+    public String getCompany(){
+        return this.company;
+    }
 }
