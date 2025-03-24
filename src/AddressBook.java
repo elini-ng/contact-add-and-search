@@ -15,15 +15,7 @@ public class AddressBook {
         if (contacts.isEmpty()) {
             System.out.println("연락처가 비어있습니다");
         } else {
-            contacts.forEach(contact -> {
-                System.out.print("이름: " + contact.getName() + ", 전화번호: " + contact.getPhoneNumber());
-
-                if (contact instanceof BusinessContact) {
-                    System.out.println(", 회사명: " + ((BusinessContact) contact).getCompany());
-                } else {
-                    System.out.println(", 관계: " + ((PersonalContact) contact).getRelationship());
-                }
-            });
+            contacts.forEach(System.out::println);
         }
     }
 
@@ -31,15 +23,7 @@ public class AddressBook {
         contacts.stream()
                 .filter(contact -> contact.getName().equalsIgnoreCase(name))
                 .findFirst()
-                .ifPresentOrElse(contact -> {
-                    System.out.print("이름: " + contact.getName() + ", 전화번호: " + contact.getPhoneNumber());
-
-                    if (contact instanceof BusinessContact) {
-                        System.out.println(", 회사명: " + ((BusinessContact) contact).getCompany());
-                    } else {
-                        System.out.println(", 관계: " + ((PersonalContact) contact).getRelationship());
-                    }
-                },
+                .ifPresentOrElse(System.out::println,
                 () -> System.out.println("연락처를 찾을 수 없습니다.")
         );
     }
